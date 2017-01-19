@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 	step = 1. / (double)num_steps;
 	start = clock();
 	double suma1 = 0.0;
-#pragma omp parallel shared (sum) private (suma1)
+#pragma omp parallel shared (sum) private (suma1, x)
 	{
 		suma1 = 0.0;
 #pragma omp for
@@ -47,6 +47,5 @@ int main(int argc, char* argv[])
 	
 
 	fclose(plik);
-	system("pause");
 	return 0;
 }
