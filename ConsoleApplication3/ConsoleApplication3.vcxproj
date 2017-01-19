@@ -82,6 +82,10 @@
   <ItemGroup>
     <ClCompile Include="TestApp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wyniki3.csv" />
+    <None Include="wyniki4.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

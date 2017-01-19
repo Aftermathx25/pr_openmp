@@ -12,7 +12,7 @@ double step;
 
 int main(int argc, char* argv[])
 {
-	omp_set_num_threads(86);
+	omp_set_num_threads(32);
 	clock_t start, stop;
 	double x, pi, sum = 0.0;
 	int i;
