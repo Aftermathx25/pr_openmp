@@ -7,7 +7,7 @@ using namespace std;
 #include <stdio.h>
 #include <time.h>
 
-long long num_steps = 100000000;
+long long num_steps = 1000000000;
 double step;
 
 int main(int argc, char* argv[])
@@ -40,11 +40,11 @@ int main(int argc, char* argv[])
 	if (plik == NULL) printf("Coœ posz³o nie tak.\n");
 	else
 	{
-
+		fprintf(plik, "%f;%d\n", ((double)(stop - start) / 1000.0), num_steps);
 	}
 
 	printf("Wartosc liczby PI wynosi %15.12f\n", pi);
-	fprintf(plik, "%f;%d\n", ((double)(stop - start) / 1000.0), num_steps);
+	
 
 	fclose(plik);
 	system("pause");
