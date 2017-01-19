@@ -7,7 +7,7 @@ using namespace std;
 #include <stdio.h>
 #include <time.h>
 
-long long num_steps = 1000000000;
+long long num_steps = 100000000;
 double step;
 
 void function()
@@ -19,7 +19,7 @@ void function()
 	step = 1. / (double)num_steps;
 	start = clock();
 	double suma1 = 0.0;
-#pragma omp parallel  reduction (+: sum) private (suma1)
+#pragma omp parallel  reduction (+: sum) private (suma1, x)
 	{
 		suma1 = 0.0;
 #pragma omp for 
