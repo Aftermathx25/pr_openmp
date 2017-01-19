@@ -10,7 +10,7 @@ using namespace std;
 long long num_steps = 1000000000;
 double step;
 
-int main(int argc, char* argv[])
+void function()
 {
 	omp_set_num_threads(32);
 	clock_t start, stop;
@@ -19,24 +19,24 @@ int main(int argc, char* argv[])
 	step = 1. / (double)num_steps;
 	start = clock();
 	double suma1 = 0.0;
-#pragma omp parallel shared (sum) private (suma1, x)
+#pragma omp parallel  reduction (+: sum) private (suma1)
 	{
 		suma1 = 0.0;
-#pragma omp for
+#pragma omp for 
 		for (i = 0; i < num_steps; i++)
 		{
 			x = (i + .5)*step;
 			suma1 += 4.0 / (1. + x*x);
 
 		}
-#pragma omp atomic
+		//#pragma omp atomic
 		sum += suma1;
 	}
 	pi = sum*step;
 	stop = clock();
 
 	FILE* plik;
-	fopen_s(&plik, "wyniki4.csv", "a");
+	fopen_s(&plik, "wyniki5.csv", "a");
 	if (plik == NULL) printf("Coœ posz³o nie tak.\n");
 	else
 	{
@@ -44,8 +44,13 @@ int main(int argc, char* argv[])
 	}
 
 	printf("Wartosc liczby PI wynosi %15.12f\n", pi);
-	
+
 
 	fclose(plik);
+}
+
+int main(int argc, char* argv[])
+{
+	for (int i = 0; i < 50; i++) function();
 	return 0;
 }
