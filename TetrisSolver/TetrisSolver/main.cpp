@@ -7,9 +7,6 @@
 
 using namespace std;
 
-
-
-
 int main(int argc, char* argv[])
 {
 	srand(time(NULL));
@@ -27,9 +24,9 @@ int main(int argc, char* argv[])
 
 	printf("\n\n");
 
-	TBlock block = L();
+	TBlock block = J();
 
-	for (int i = 0; i < 2; i++){
+	for (int i = 0; i < 4; i++){
 		for (int j = 0; j < block.getHeight(i); j++){
 			for (int k = 0; k < block.getWidth(i); k++){
 				printf("%d ", block.getValueAt(i, j, k));
