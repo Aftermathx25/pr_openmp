@@ -185,15 +185,19 @@ public:
 
 		fill3dMatrix(values);
 
-		for (int i = 0; i < 4; i++){
-			height[i] = 2; width[i] = 2;
-			for (int j = 0; j < 2; j++)
-			{
+		height[0] = 2; width[0] = 2;
+		height[1] = width[0]; width[1] = height[0];
+		height[2] = height[0]; width[2] = width[0];
+		height[3] = height[1]; width[3] = width[1];
+
+
+			for (int j = 0; j < 2; j++){
 				for (int k = 0; k < 2; k++){
-					values[i][j][k] = true;
+					values[0][j][k] = true;
 				}
 			}
-		}
+
+			rotate2dMatrix(values, height, width);
 
 	}
 };

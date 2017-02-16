@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <Windows.h>
-#include <cstdlib>
-#include <ctime>
+#include <stdlib.h>
+#include <time.h>
 #include "TField.h"
 #include "TBlock.h"
 
@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	srand(time(NULL));
+	srand( time( NULL ) );
 
 	TField tetris = TField();
 
@@ -24,7 +24,38 @@ int main(int argc, char* argv[])
 
 	printf("\n\n");
 
-	TBlock block = L();
+
+	int number = rand()%6;
+
+	printf("Number is equal to %d\n", number);
+
+
+	TBlock block;
+
+	switch (number)
+	{
+	case 0:
+		block = L();
+		break;
+	case 1:
+		block = S();
+		break;
+	case 2:
+		block = Z();
+		break;
+	case 3:
+		block = T();
+		break;
+	case 4:
+		block = O();
+		break;
+	case 5:
+		block = I();
+		break;
+	case 6:
+		block = J();
+		break;
+	}
 
 
 	for (int i = 0; i < 4; i++){
