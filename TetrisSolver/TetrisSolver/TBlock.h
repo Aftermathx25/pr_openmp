@@ -53,15 +53,13 @@ void rotate2dMatrix(boolean(&values)[4][4][4], int(&height)[4], int(&width)[4])
 }
 
 class TBlock {
-public:
+protected:
+	boolean values[4][4][4];
 	int height[4];
 	int width[4];
-	//int rotation;
-	boolean values[4][4][4]; // [Rotation][Vertical][Horizontal]
+public:
 	int getHeight(int);
 	int getWidth(int);
-	//int getRotation(TBlock);
-	//boolean setRotation(int);
 	boolean getValueAt(int, int, int);
 };
 

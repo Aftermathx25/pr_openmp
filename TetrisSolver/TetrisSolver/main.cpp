@@ -24,7 +24,8 @@ int main(int argc, char* argv[])
 
 	printf("\n\n");
 
-	TBlock block = J();
+	TBlock block = L();
+
 
 	for (int i = 0; i < 4; i++){
 		for (int j = 0; j < block.getHeight(i); j++){
